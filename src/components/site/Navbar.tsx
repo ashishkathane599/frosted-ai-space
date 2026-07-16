@@ -104,14 +104,14 @@ export function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile slide-down glass menu */}
+      {/* Mobile slide-down glass menu — extra blur and opacity for readability */}
       <div
         className={
           "lg:hidden overflow-hidden transition-[max-height,opacity,margin] duration-500 ease-out " +
           (open ? "mt-3 max-h-[560px] opacity-100" : "mt-0 max-h-0 opacity-0")
         }
       >
-        <ul className="glass-strong flex flex-col p-2" style={{ borderRadius: "24px" }}>
+        <ul className="glass-menu flex flex-col p-2" style={{ borderRadius: "24px" }}>
           {NAV.map((item) => {
             const active = isActive(item.to);
             return (
@@ -123,7 +123,7 @@ export function Navbar() {
                     "block rounded-2xl px-4 py-3 text-sm transition-colors " +
                     (active
                       ? "bg-gradient-accent text-white shadow-accent-glow"
-                      : "text-foreground/80 hover:bg-white/5 hover:text-foreground")
+                      : "text-foreground/90 hover:bg-white/10 hover:text-foreground")
                   }
                 >
                   {item.label}
