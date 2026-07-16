@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SkillsRouteImport } from './routes/skills'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as ExperienceRouteImport } from './routes/experience'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -18,10 +19,20 @@ import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as ApiProjectsRouteImport } from './routes/api/projects'
+import { Route as ApiContactRouteImport } from './routes/api/contact'
+import { Route as ApiBlogIndexRouteImport } from './routes/api/blog.index'
+import { Route as ApiBlogIdRouteImport } from './routes/api/blog.$id'
+import { Route as ApiAdminBlogRouteImport } from './routes/api/admin.blog'
 
 const SkillsRoute = SkillsRouteImport.update({
   id: '/skills',
   path: '/skills',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProjectsRoute = ProjectsRouteImport.update({
@@ -64,6 +75,31 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => BlogRoute,
 } as any)
+const ApiProjectsRoute = ApiProjectsRouteImport.update({
+  id: '/api/projects',
+  path: '/api/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiContactRoute = ApiContactRouteImport.update({
+  id: '/api/contact',
+  path: '/api/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiBlogIndexRoute = ApiBlogIndexRouteImport.update({
+  id: '/api/blog/',
+  path: '/api/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiBlogIdRoute = ApiBlogIdRouteImport.update({
+  id: '/api/blog/$id',
+  path: '/api/blog/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAdminBlogRoute = ApiAdminBlogRouteImport.update({
+  id: '/api/admin/blog',
+  path: '/api/admin/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -73,8 +109,14 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/experience': typeof ExperienceRoute
   '/projects': typeof ProjectsRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/skills': typeof SkillsRoute
+  '/api/contact': typeof ApiContactRoute
+  '/api/projects': typeof ApiProjectsRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/api/admin/blog': typeof ApiAdminBlogRoute
+  '/api/blog/$id': typeof ApiBlogIdRoute
+  '/api/blog/': typeof ApiBlogIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -84,8 +126,14 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/experience': typeof ExperienceRoute
   '/projects': typeof ProjectsRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/skills': typeof SkillsRoute
+  '/api/contact': typeof ApiContactRoute
+  '/api/projects': typeof ApiProjectsRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/api/admin/blog': typeof ApiAdminBlogRoute
+  '/api/blog/$id': typeof ApiBlogIdRoute
+  '/api/blog': typeof ApiBlogIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -96,8 +144,14 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/experience': typeof ExperienceRoute
   '/projects': typeof ProjectsRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/skills': typeof SkillsRoute
+  '/api/contact': typeof ApiContactRoute
+  '/api/projects': typeof ApiProjectsRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/api/admin/blog': typeof ApiAdminBlogRoute
+  '/api/blog/$id': typeof ApiBlogIdRoute
+  '/api/blog/': typeof ApiBlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -109,8 +163,14 @@ export interface FileRouteTypes {
     | '/contact'
     | '/experience'
     | '/projects'
+    | '/sitemap.xml'
     | '/skills'
+    | '/api/contact'
+    | '/api/projects'
     | '/blog/$slug'
+    | '/api/admin/blog'
+    | '/api/blog/$id'
+    | '/api/blog/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -120,8 +180,14 @@ export interface FileRouteTypes {
     | '/contact'
     | '/experience'
     | '/projects'
+    | '/sitemap.xml'
     | '/skills'
+    | '/api/contact'
+    | '/api/projects'
     | '/blog/$slug'
+    | '/api/admin/blog'
+    | '/api/blog/$id'
+    | '/api/blog'
   id:
     | '__root__'
     | '/'
@@ -131,8 +197,14 @@ export interface FileRouteTypes {
     | '/contact'
     | '/experience'
     | '/projects'
+    | '/sitemap.xml'
     | '/skills'
+    | '/api/contact'
+    | '/api/projects'
     | '/blog/$slug'
+    | '/api/admin/blog'
+    | '/api/blog/$id'
+    | '/api/blog/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -143,7 +215,13 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   ExperienceRoute: typeof ExperienceRoute
   ProjectsRoute: typeof ProjectsRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SkillsRoute: typeof SkillsRoute
+  ApiContactRoute: typeof ApiContactRoute
+  ApiProjectsRoute: typeof ApiProjectsRoute
+  ApiAdminBlogRoute: typeof ApiAdminBlogRoute
+  ApiBlogIdRoute: typeof ApiBlogIdRoute
+  ApiBlogIndexRoute: typeof ApiBlogIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -153,6 +231,13 @@ declare module '@tanstack/react-router' {
       path: '/skills'
       fullPath: '/skills'
       preLoaderRoute: typeof SkillsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/projects': {
@@ -211,6 +296,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof BlogRoute
     }
+    '/api/projects': {
+      id: '/api/projects'
+      path: '/api/projects'
+      fullPath: '/api/projects'
+      preLoaderRoute: typeof ApiProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/contact': {
+      id: '/api/contact'
+      path: '/api/contact'
+      fullPath: '/api/contact'
+      preLoaderRoute: typeof ApiContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/blog/': {
+      id: '/api/blog/'
+      path: '/api/blog'
+      fullPath: '/api/blog/'
+      preLoaderRoute: typeof ApiBlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/blog/$id': {
+      id: '/api/blog/$id'
+      path: '/api/blog/$id'
+      fullPath: '/api/blog/$id'
+      preLoaderRoute: typeof ApiBlogIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/admin/blog': {
+      id: '/api/admin/blog'
+      path: '/api/admin/blog'
+      fullPath: '/api/admin/blog'
+      preLoaderRoute: typeof ApiAdminBlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -232,7 +352,13 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   ExperienceRoute: ExperienceRoute,
   ProjectsRoute: ProjectsRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   SkillsRoute: SkillsRoute,
+  ApiContactRoute: ApiContactRoute,
+  ApiProjectsRoute: ApiProjectsRoute,
+  ApiAdminBlogRoute: ApiAdminBlogRoute,
+  ApiBlogIdRoute: ApiBlogIdRoute,
+  ApiBlogIndexRoute: ApiBlogIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
