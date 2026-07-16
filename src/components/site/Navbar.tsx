@@ -32,9 +32,13 @@ export function Navbar() {
         >
           <span
             aria-hidden
-            className="grid h-8 w-8 place-items-center rounded-full bg-gradient-accent text-white shadow-accent-glow"
+            className="grid h-8 w-8 place-items-center overflow-hidden rounded-full bg-gradient-accent shadow-accent-glow"
           >
-            <span className="text-[13px] font-bold">AK</span>
+            <img
+              src={profileAsset.url}
+              alt="Ashish Kathane"
+              className="h-full w-full object-cover"
+            />
           </span>
           <span className="hidden sm:inline text-foreground/95">Ashish Kathane</span>
         </Link>
