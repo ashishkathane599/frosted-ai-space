@@ -128,7 +128,7 @@
     inset: -20%;
     z-index: -2;
     background: var(--gradient-mesh), oklch(0.13 0.03 265);
-    filter: blur(40px) saturate(140%);
+    filter: blur(24px) saturate(120%);
     animation: mesh-drift 32s ease-in-out infinite alternate;
     pointer-events: none;
   }
@@ -172,7 +172,7 @@
    ========================================================================= */
 @utility glass {
   background: var(--glass-bg);
-  backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(14px) saturate(160%);
   border: 1px solid var(--glass-border);
   box-shadow: var(--shadow-glass);
   border-radius: var(--radius);
@@ -180,7 +180,7 @@
 
 @utility glass-strong {
   background: var(--glass-bg-strong);
-  backdrop-filter: blur(28px) saturate(200%);
+  backdrop-filter: blur(18px) saturate(180%);
   border: 1px solid var(--glass-border-strong);
   box-shadow: var(--shadow-glass);
   border-radius: var(--radius);
@@ -188,7 +188,7 @@
 
 @utility glass-card {
   background: var(--glass-bg);
-  backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(16px) saturate(160%);
   border: 1px solid var(--glass-border);
   box-shadow: var(--shadow-glass);
   border-radius: calc(var(--radius) + 0.25rem);
@@ -206,7 +206,7 @@
 
 @utility glass-pill {
   background: var(--glass-bg);
-  backdrop-filter: blur(16px) saturate(180%);
+  backdrop-filter: blur(12px) saturate(160%);
   border: 1px solid var(--glass-border);
   border-radius: 999px;
   transition: all 0.25s ease;
@@ -214,7 +214,7 @@
 
 @utility glass-menu {
   background: var(--glass-bg-strong);
-  backdrop-filter: blur(32px) saturate(220%);
+  backdrop-filter: blur(22px) saturate(190%);
   border: 1px solid var(--glass-border-strong);
   box-shadow: var(--shadow-glass);
   border-radius: calc(var(--radius) + 0.25rem);
