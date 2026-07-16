@@ -97,7 +97,7 @@ function Home() {
                   }}
                 />
                 <img
-                  src="public/public.jpg"
+                  src="/public.jpg"
                   alt="Portrait of Ashish Kathane"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
