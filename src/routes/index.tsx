@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Layout } from "@/components/site/Layout";
 import { SITE, SOCIALS, STATS } from "@/lib/site";
+import profileAsset from "@/assets/profile.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -96,16 +97,11 @@ function Home() {
                       "radial-gradient(circle at 30% 25%, rgba(255,255,255,0.35), transparent 55%), linear-gradient(135deg, rgba(10,132,255,0.55), rgba(94,92,230,0.55))",
                   }}
                 />
-                {/* Marked placeholder — drop /assets/img/profile.jpg to replace */}
                 <img
-                  src="/assets/img/profile.jpg"
+                  src={profileAsset.url}
                   alt="Portrait of Ashish Kathane"
-                  onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
                   className="absolute inset-0 h-full w-full object-cover"
                 />
-                <div className="absolute inset-x-0 bottom-6 text-center text-[11px] uppercase tracking-[0.24em] text-white/70">
-                  Portrait placeholder
-                </div>
               </div>
 
               {/* Floating stat chips */}
