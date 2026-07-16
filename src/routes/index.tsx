@@ -97,7 +97,7 @@ function Home() {
                   }}
                 />
                 <img
-                  src={profileAsset.url}
+                  src="public/public.jpg"
                   alt="Portrait of Ashish Kathane"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
