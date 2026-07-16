@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import profileAsset from "@/assets/profile.jpg.asset.json";
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -35,7 +34,7 @@ export function Navbar() {
             className="grid h-8 w-8 place-items-center overflow-hidden rounded-full bg-gradient-accent shadow-accent-glow"
           >
             <img
-              src={profileAsset.url}
+              src="public\public.jpg"
               alt="Ashish Kathane"
               className="h-full w-full object-cover"
             />
