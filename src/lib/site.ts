@@ -74,6 +74,7 @@ export const SKILL_GROUPS = [
     name: "AI/ML & GenAI",
     items: [
       "Machine Learning", "Deep Learning", "NLP", "Generative AI", "RAG",
+      "Agentic AI", "LangGraph", "Multi-Agent Systems", "Tool-Using Agents",
       "Fine-Tuning", "Embeddings", "Prompt Engineering", "LangChain (LCEL)",
       "HuggingFace Transformers", "Whisper ASR", "OpenAI API", "Mistral API",
       "Ollama (LLaMA 3.1)", "Sentence-Transformers", "NLTK", "SpaCy",
