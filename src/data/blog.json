@@ -1,0 +1,29 @@
+[
+  {
+    "id": "building-rag-from-scratch",
+    "title": "Building a RAG Pipeline from Scratch",
+    "excerpt": "What I learned wiring up chunking, embeddings, a vector store and an LLM by hand — before reaching for a framework.",
+    "date": "2025-11-14",
+    "readTime": "8 min",
+    "tags": ["RAG", "LangChain", "Vector DBs"],
+    "content": "## Why build it from scratch first\n\nBefore leaning on LangChain or LlamaIndex, I built a minimal RAG pipeline by hand: a chunker, a Sentence-Transformers embedder, a tiny in-memory vector index, and a prompt that stitched retrieved chunks into a Mistral call. It took a weekend and completely changed how I read framework code afterwards.\n\n## The four moving parts\n\n1. **Chunking.** Fixed-size windows are the wrong default. Overlap + sentence-aware splitting fixed 80% of my hallucinations.\n2. **Embeddings.** `all-MiniLM-L6-v2` is a shockingly good baseline. Don't reach for OpenAI embeddings until you have proof they beat it on *your* data.\n3. **Retrieval.** Cosine similarity is fine — but reranking the top-20 with a cross-encoder beat every clever prompt trick I tried.\n4. **Prompt.** Grounding the answer in cited chunks (`[1]`, `[2]`) made evaluation dramatically easier, because I could see where the model was pulling from.\n\n## Where LangChain earned its keep\n\nOnce I ported it to LangChain LCEL, the *chain* got shorter but the *observability* got a lot better. Retrievers, prompts and models become composable primitives you can swap without touching glue code. Would still recommend building it raw first."
+  },
+  {
+    "id": "fine-tuning-bert",
+    "title": "What I Learned Fine-Tuning BERT",
+    "excerpt": "Class imbalance, learning-rate warmup, and the moment the model stopped predicting only the majority class.",
+    "date": "2025-10-02",
+    "readTime": "6 min",
+    "tags": ["NLP", "BERT", "PyTorch"],
+    "content": "## The task\n\nMulti-class sentiment classification on a customer review dataset with a nasty 70/20/10 class split. First run: 71% accuracy, F1 on the minority class close to zero. Classic.\n\n## The three things that actually moved the needle\n\n1. **Class-weighted loss.** Passing per-class weights into `CrossEntropyLoss` was a bigger unlock than any architectural tweak.\n2. **LR warmup + linear decay.** BERT hates high LR from step 0. A 10% warmup schedule stabilized training immediately.\n3. **Actually looking at the confusion matrix.** Accuracy was hiding the story. Once I plotted per-class precision / recall I could see exactly which pairs the model was confusing (spoiler: neutral vs. slightly-positive).\n\n## Takeaway\n\nFine-tuning is 20% model, 80% data + evaluation discipline. Precision, recall and F1 per class are non-negotiable on imbalanced data."
+  },
+  {
+    "id": "agentic-ai-notes",
+    "title": "Notes on Agentic AI: Tools, Memory, and Loops",
+    "excerpt": "Why the interesting research isn't the model — it's the scaffolding around it.",
+    "date": "2025-09-08",
+    "readTime": "5 min",
+    "tags": ["Agents", "LLM Systems"],
+    "content": "## The shift\n\nA chatbot answers a question. An agent decides what to do next. That gap is where almost all the interesting engineering lives right now: tool use, memory, planning loops, self-critique.\n\n## What I keep coming back to\n\n- **Tool interfaces matter more than model choice.** A well-typed tool with a crisp docstring beats a bigger model with a vague API.\n- **Short memory > long memory.** Aggressive summarization of the scratchpad keeps agents on-task longer than dumping the whole history.\n- **Loops need brakes.** A max-steps counter and a self-critique step have saved me from a lot of runaway token bills.\n\nStill early days — but building even a small agent teaches you more about LLM behavior than a month of reading papers."
+  }
+]

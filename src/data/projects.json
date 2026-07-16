@@ -1,0 +1,118 @@
+[
+  {
+    "id": "meeting-mind",
+    "title": "AI Meeting Assistant — \"Meeting Mind\"",
+    "tagline": "Audio → transcript → summary → RAG chat, end-to-end.",
+    "description": "End-to-end audio intelligence pipeline that ingests YouTube URLs or uploaded files, transcribes with local Whisper (offline + Hindi→English), summarizes via a LangChain LCEL + Mistral chain, and enables conversational Q&A over transcripts through a ChromaDB RAG store — all wrapped in a Streamlit UI with PDF/TXT export.",
+    "bullets": [
+      "Ingestion of YouTube + uploads with yt-dlp / pydub and automatic chunking for long-form content.",
+      "Local Whisper ASR (faster-whisper) with Hindi→English translation support.",
+      "LangChain LCEL summarization chain (Mistral API) producing summaries, action items and decisions.",
+      "RAG pipeline (ChromaDB + HuggingFace embeddings) for follow-up questions over the meeting."
+    ],
+    "tech": ["Python", "Whisper", "LangChain LCEL", "Mistral API", "ChromaDB", "HuggingFace", "Streamlit"],
+    "gradient": "linear-gradient(135deg, #0A84FF 0%, #5E5CE6 100%)",
+    "icon": "waveform",
+    "github": "https://github.com/ashishkathane599",
+    "demo": null
+  },
+  {
+    "id": "fraud-detection",
+    "title": "AI-Powered Fraud Detection & Identity Verification",
+    "tagline": "OCR + CNN + Random Forest for identity docs — 94% precision.",
+    "description": "Multi-stage document verification pipeline that extracts structured identity fields from noisy scans, then classifies authenticity using a CNN (98%) alongside a Random Forest fraud model (94%), with facial-landmark cross-verification for multimodal validation.",
+    "bullets": [
+      "Tesseract + OpenCV OCR pipeline over noisy scanned identity documents.",
+      "CNN authenticity classifier reaching 98% accuracy on the validation set.",
+      "Random Forest fraud model at 94% precision on identity verification patterns.",
+      "Facial landmark cross-verification tying document to selfie for multimodal fraud signal."
+    ],
+    "tech": ["Python", "OpenCV", "Tesseract", "CNN", "Random Forest", "pandas"],
+    "gradient": "linear-gradient(135deg, #5E5CE6 0%, #0A84FF 100%)",
+    "icon": "shield",
+    "github": "https://github.com/ashishkathane599",
+    "demo": null
+  },
+  {
+    "id": "youtube-rag-chatbot",
+    "title": "YouTube RAG Chatbot",
+    "tagline": "Chat with any YouTube video via local LLaMA 3.1 + FAISS.",
+    "description": "Full-stack RAG chatbot that turns any YouTube video into a conversational knowledge source — transcript extraction, semantic chunking, FAISS vector indexing, and a locally-hosted LLaMA 3.1 8B inference backend. Multi-user architecture with UUID-scoped conversations and isolated per-video vector stores.",
+    "bullets": [
+      "Automatic transcript extraction + semantic chunking per video.",
+      "Per-video FAISS store for isolated, low-latency retrieval.",
+      "Local LLaMA 3.1 8B inference via Ollama — no API keys required.",
+      "FastAPI backend + SQLite persistence + responsive HTML/CSS/JS frontend."
+    ],
+    "tech": ["Python", "FastAPI", "LangChain", "FAISS", "Ollama (LLaMA 3.1)", "SQLite"],
+    "gradient": "linear-gradient(135deg, #0A84FF 0%, #38BDF8 100%)",
+    "icon": "chat",
+    "github": "https://github.com/ashishkathane599",
+    "demo": null
+  },
+  {
+    "id": "nova-gesture-hci",
+    "title": "NOVA — Real-Time Gesture-Based HCI",
+    "tagline": "Hands-free OS control using MediaPipe landmarks.",
+    "description": "Real-time human-computer interaction system that detects hand and face landmarks with MediaPipe and classifies 5+ gestures (pinch, scroll, eye-blink, head-cursor) at >95% accuracy, exposed as a Django REST dashboard with live video streaming for hands-free OS control.",
+    "bullets": [
+      "MediaPipe + OpenCV landmark detection at real-time framerates.",
+      "5+ gesture classes (pinch / scroll / blink / head-cursor) at >95% accuracy.",
+      "PyAutoGUI action layer maps gestures to OS-level input.",
+      "Django REST dashboard with live MJPEG video streaming."
+    ],
+    "tech": ["Python", "MediaPipe", "OpenCV", "PyAutoGUI", "Django"],
+    "gradient": "linear-gradient(135deg, #5E5CE6 0%, #9333EA 100%)",
+    "icon": "hand",
+    "github": "https://github.com/ashishkathane599",
+    "demo": null
+  },
+  {
+    "id": "rag-pdf-chatbot",
+    "title": "RAG-Based PDF Chatbot",
+    "tagline": "Ask questions across any uploaded PDF, grounded in the source.",
+    "description": "Retrieval-Augmented Generation chatbot that ingests uploaded PDFs, embeds their content, and answers questions with citations drawn from the source. FastAPI backend + Streamlit frontend.",
+    "bullets": [
+      "PDF ingestion + chunking + HuggingFace embeddings.",
+      "ChromaDB semantic search with source-grounded answers.",
+      "FastAPI backend + Streamlit frontend for a clean upload → chat flow."
+    ],
+    "tech": ["Python", "LangChain", "ChromaDB", "FastAPI", "HuggingFace"],
+    "gradient": "linear-gradient(135deg, #0A84FF 0%, #5E5CE6 100%)",
+    "icon": "document",
+    "github": "https://github.com/ashishkathane599",
+    "demo": null
+  },
+  {
+    "id": "bert-sentiment",
+    "title": "BERT-Based Sentiment Analysis",
+    "tagline": "Fine-tuned BERT for multi-class review sentiment.",
+    "description": "Fine-tuned BERT model for multi-class sentiment classification of customer reviews, with careful evaluation via precision, recall and F1 across classes to surface the true minority-class performance.",
+    "bullets": [
+      "HuggingFace Transformers + PyTorch training loop.",
+      "Multi-class sentiment with per-class precision / recall / F1 reporting.",
+      "Data pipeline for cleaning, tokenizing and balancing customer review text."
+    ],
+    "tech": ["Python", "HuggingFace Transformers", "PyTorch", "pandas"],
+    "gradient": "linear-gradient(135deg, #38BDF8 0%, #5E5CE6 100%)",
+    "icon": "sentiment",
+    "github": "https://github.com/ashishkathane599",
+    "demo": null
+  },
+  {
+    "id": "churn-pipeline",
+    "title": "Customer Churn Prediction — End-to-End ML Pipeline",
+    "tagline": "Production-shaped sklearn pipeline with +12% accuracy from tuning.",
+    "description": "Production-style ML pipeline built with sklearn Pipeline / ColumnTransformer covering imputation, encoding, scaling and feature selection, tuned with GridSearchCV for a +12% accuracy lift, and Pickle-serialized for deployment.",
+    "bullets": [
+      "sklearn Pipeline + ColumnTransformer covering imputation → encoding → scaling → feature selection.",
+      "GridSearchCV hyperparameter search delivering +12% accuracy over baseline.",
+      "Pickle serialization ready for FastAPI / Flask deployment."
+    ],
+    "tech": ["Python", "scikit-learn", "pandas", "NumPy"],
+    "gradient": "linear-gradient(135deg, #5E5CE6 0%, #0A84FF 100%)",
+    "icon": "chart",
+    "github": "https://github.com/ashishkathane599",
+    "demo": null
+  }
+]
