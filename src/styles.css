@@ -49,12 +49,12 @@
   --background: oklch(0.16 0.03 265);
   --foreground: oklch(0.98 0.005 250);
 
-  /* Glass surfaces (translucent whites) */
-  --glass-bg: oklch(1 0 0 / 0.06);
-  --glass-bg-strong: oklch(1 0 0 / 0.10);
-  --glass-border: oklch(1 0 0 / 0.14);
-  --glass-border-strong: oklch(1 0 0 / 0.22);
-  --glass-highlight: oklch(1 0 0 / 0.08);
+  /* Glass surfaces (translucent whites) — bumped opacity so menus read clearly */
+  --glass-bg: oklch(1 0 0 / 0.10);
+  --glass-bg-strong: oklch(1 0 0 / 0.18);
+  --glass-border: oklch(1 0 0 / 0.16);
+  --glass-border-strong: oklch(1 0 0 / 0.28);
+  --glass-highlight: oklch(1 0 0 / 0.10);
 
   --card: oklch(1 0 0 / 0.06);
   --card-foreground: oklch(0.98 0.005 250);
