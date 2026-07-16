@@ -212,6 +212,14 @@
   transition: all 0.25s ease;
 }
 
+@utility glass-menu {
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(32px) saturate(220%);
+  border: 1px solid var(--glass-border-strong);
+  box-shadow: var(--shadow-glass);
+  border-radius: calc(var(--radius) + 0.25rem);
+}
+
 @utility text-gradient {
   background: var(--gradient-accent);
   -webkit-background-clip: text;
