@@ -34,7 +34,7 @@ export function Navbar() {
             className="grid h-8 w-8 place-items-center overflow-hidden rounded-full bg-gradient-accent shadow-accent-glow"
           >
             <img
-              src="public/public.jpg"
+              src="/public.jpg"
               alt="Ashish Kathane"
               className="h-full w-full object-cover"
             />
